@@ -5,5 +5,19 @@
                 text: "User Login"
             TextInput:
                 hint_text: "Username"
+            TextInput:
+                hint_text: "Password"
+            Button:
+                text: "Login"
+
         GridLayout:
             cols: 2
+            Button: 
+                text: "Forgot Password?"
+            Button: 
+                text: "Sign up" 
+
+<RootWidget>: # an invisible record of all your app's screens
+    LoginScreen:
+        name: "login_screen" # we'll use this name to refer to the login screen within the Python code
+
