@@ -10,3 +10,10 @@ class LoginScreen(Screen):
     pass
 class RootWidget(ScreenManager):
     pass
+
+class MainApp(App):   # the app object you haven't used yet (inherits from App above)
+    def build(self): # def build is from App.
+        return RootWidget() # make sure it's the object and not the class (the brackets () initialize it.)
+
+if __name__ == "__main__":
+    MainApp().run() # this creates an instance of the Main App and applies its run() method.
