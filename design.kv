@@ -1,26 +1,34 @@
-<RootWidget>
-    LoginScreen: 
-        name: "login_screen"
+<LoginScreen>: 
+    name: "login_screen"
+    GridLayout:
+        cols: 1  # need to attach column attributes to this grid layout object.
         GridLayout:
-            cols: 1  # need to attach column attributes to this grid layout object.
-            GridLayout:
-                cols: 1  # need a column attribute here as well.
-                Label: # a Python object
-                    text: "User Login"
-                TextInput: # a Python object
-                    hint_text: "Username"
-                TextInput: # a Python object
-                    hint_text: "Password"
-                Button: # a Python object
-                    text: "Login"
-            GridLayout:
-                cols: 2
-                Button: 
-                    text: "Forgot Password?"
-                Button: 
-                    text: "Sign up" 
+            cols: 1  # need a column attribute here as well.
+            Label: # a Python object
+                text: "User Login"
+            TextInput: # a Python object
+                hint_text: "Username"
+            TextInput: # a Python object
+                hint_text: "Password"
+            Button: # a Python object
+                text: "Login"
+        GridLayout:
+            cols: 2
+            Button: 
+                text: "Forgot Password?"
+            Button: 
+                text: "Sign up" 
+                on_press: root.sign_up() # another attribute
+                                            # 'root' here refers to the LoginScreen class in the other file
+                                            # .sign_up() also refers back to the python file.
 
 # Refactored this up above, as RootWidget is above LoginScreen in the hierarchy
-#<RootWidget>: # an invisible record of all your app's screens
-#    LoginScreen:
-#        name: "login_screen" # we'll use this name to refer to the login screen within the Python code
+<RootWidget>: # an invisible record of all your app's screens
+    LoginScreen:
+        name: "login_screen" # we'll use this name to refer to the login screen within the Python code
+
+
+
+
+
+
