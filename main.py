@@ -8,7 +8,7 @@ Builder.load_file('design.kv')
 class LoginScreen(Screen):  # under the RootWidget in the hierarchy
 # will inherit from screen object
     def sign_up(self):
-        print("Sign up button pressed")
+        self.manager.current = "sign_up_screen"
 
 class RootWidget(ScreenManager):  # the next in the hierarchy
     pass

@@ -22,11 +22,24 @@
                                             # 'root' here refers to the LoginScreen class in the other file
                                             # .sign_up() also refers back to the python file.
 
+<SignUpScreen>
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Sign up for a space journey"
+        TextInput: 
+            hint_text: "Username"  # what will be shown in the text field as a hint 
+        TextInput:
+            hint_text: "Password"
+        Button:
+            text: "Submit"
+
 # Refactored this up above, as RootWidget is above LoginScreen in the hierarchy
 <RootWidget>: # an invisible record of all your app's screens
     LoginScreen:
         name: "login_screen" # we'll use this name to refer to the login screen within the Python code
-
+    SignUpScreen:
+        name: "Sign_up_screen" # note that screens need their own names
 
 
 
