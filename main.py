@@ -9,9 +9,16 @@ class LoginScreen(Screen):  # under the RootWidget in the hierarchy
 # will inherit from screen object
     def sign_up(self):
         self.manager.current = "sign_up_screen"
+        # self refers to the instance of the LoginScreen object.
+        # manager is a property of the parent 'screen'. Self (the instance) is able to access the 'manager' property
+        # current is an attribute of manager, and it will get the name of the scrren you want to switch to (in this case, sign_up_screen)
 
 class RootWidget(ScreenManager):  # the next in the hierarchy
     pass
+
+class SignUpScreen(Screen):
+    def add_user(self): # this will send the user input to a json file and store then there.
+        pass
 
 class MainApp(App):   # the app object you haven't used yet (inherits from App above). It is the highest in the heirarchy.
     def build(self): # def build is from App.

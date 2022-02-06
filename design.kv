@@ -28,18 +28,22 @@
         Label:
             text: "Sign up for a space journey"
         TextInput: 
+            id: Username  # no quotes, because this is a variable, not a string.
             hint_text: "Username"  # what will be shown in the text field as a hint 
         TextInput:
+            id: password
             hint_text: "Password"
         Button:
             text: "Submit"
+            on_press: root.add_user(root.ids.username, root.ids.password) # here, 'root' is class SignUpScreen
+                                    # note: 'ids' is a keyword in kivy
 
 # Refactored this up above, as RootWidget is above LoginScreen in the hierarchy
 <RootWidget>: # an invisible record of all your app's screens
     LoginScreen:
         name: "login_screen" # we'll use this name to refer to the login screen within the Python code
     SignUpScreen:
-        name: "Sign_up_screen" # note that screens need their own names
+        name: "sign_up_screen" # note that screens need their own names
 
 
 
