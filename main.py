@@ -1,6 +1,9 @@
+from datetime import datetime
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager
+import json
+from datetime import datetime
 
 Builder.load_file('design.kv')
 
@@ -18,7 +21,14 @@ class RootWidget(ScreenManager):  # the next in the hierarchy
 
 class SignUpScreen(Screen):
     def add_user(self, uname, pword): # this will send the user input to a json file and store then there.
-        print(uname, pword)
+        with open("database.json") as file:
+            users=json.load(file)
+
+        # to add another user to the database:
+        users['uname'] = {'username': uname,  # meaning that username will be whatever we pass in for the uname variable
+                        'password': pword, 
+                        'created': datetime.now().strftime("%Y-%m-%d %H-%M-%S")}  # need to get the current time as a string
+        print(users)  # as a testing step
 
 class MainApp(App):   # the app object you haven't used yet (inherits from App above). It is the highest in the heirarchy.
     def build(self): # def build is from App.
@@ -26,3 +36,8 @@ class MainApp(App):   # the app object you haven't used yet (inherits from App a
 
 if __name__ == "__main__":
     MainApp().run() # this creates an instance of the Main App and applies its run() method.
+
+
+# note about json:
+# shift-alt-f to "prettify". Amazing.
+# downside to json--it doesn't support comments.
