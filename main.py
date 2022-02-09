@@ -21,14 +21,18 @@ class RootWidget(ScreenManager):  # the next in the hierarchy
 
 class SignUpScreen(Screen):
     def add_user(self, uname, pword): # this will send the user input to a json file and store then there.
-        with open("database.json") as file:
+        with open("users.json") as file:
             users=json.load(file)
 
         # to add another user to the database:
         users['uname'] = {'username': uname,  # meaning that username will be whatever we pass in for the uname variable
                         'password': pword, 
                         'created': datetime.now().strftime("%Y-%m-%d %H-%M-%S")}  # need to get the current time as a string
-        print(users)  # as a testing step
+        #print(users)  # as a testing step
+        with open("users.json","w") as file:
+            json.dump(users, file)  # we "dump" the users in the dictionary (or list?) to the .json file
+                                    # it will overwrite the last dictionary but not "wipe" the content. (you can see the updated .json file)
+
 
 class MainApp(App):   # the app object you haven't used yet (inherits from App above). It is the highest in the heirarchy.
     def build(self): # def build is from App.
