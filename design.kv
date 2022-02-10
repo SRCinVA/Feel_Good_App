@@ -39,13 +39,23 @@
                                     # note: 'ids' is a keyword in kivy
                                     # .text will actually display the text itself of the username and password objects.
 
+<SignUpScreenSuccess>
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Sign up successful!!"
+        Button:
+            text: "Login page"
+            on_press: root.back_to_login()
+
 # Refactored this up above, as RootWidget is above LoginScreen in the hierarchy
 <RootWidget>: # an invisible record of all your app's screens
     LoginScreen:
         name: "login_screen" # we'll use this name to refer to the login screen within the Python code
     SignUpScreen:
         name: "sign_up_screen" # note that screens need their own names
-
+    SignUpScreenSuccess:
+        name: "sign_up_screen_success" # needs to be the same as the referent from self.manager.current
 
 
 
