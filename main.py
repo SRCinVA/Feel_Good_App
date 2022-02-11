@@ -34,11 +34,17 @@ class SignUpScreen(Screen):
                                     # it will overwrite the last dictionary but not "wipe" the content. (you can see the updated .json file)
         self.manager.current = "sign_up_screen_success"
 
+
 class SignUpScreenSuccess(Screen): # it inherits from 'screen'
 
     def back_to_login(self):
-        if True:
-            self.manager.current = "LoginScreen"
+        self.manager.transition.direction = 'right' # to change the transition direction from teh left to the right.
+        self.manager.current = "login_screen" # it goes to the name in teh RootWidget, NOT the class in the Python code
+
+class LoginScreenSuccess(Screen):
+    def log_out(self):
+        self.manager.transition.direction = "right"
+        self.manager.current = "login_screen"
 
 class MainApp(App):   # the app object you haven't used yet (inherits from App above). It is the highest in the heirarchy.
     def build(self): # def build is from App.

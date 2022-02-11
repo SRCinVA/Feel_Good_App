@@ -48,6 +48,21 @@
             text: "Login page"
             on_press: root.back_to_login()
 
+<LoginScreenSuccess>
+    GridLayout:
+        cols: 1
+        Label:
+            text: "How do you feel?"
+        Button:
+            text: "Logout"
+            on_press: "log_out()"
+        TextInput:
+            hint_text: "Things to try: happy, sad, unloved, etc... "
+        Button:
+            text: "Enlighten me"
+        Label:
+            text: ""
+
 # Refactored this up above, as RootWidget is above LoginScreen in the hierarchy
 <RootWidget>: # an invisible record of all your app's screens
     LoginScreen:
@@ -56,7 +71,8 @@
         name: "sign_up_screen" # note that screens need their own names
     SignUpScreenSuccess:
         name: "sign_up_screen_success" # needs to be the same as the referent from self.manager.current
-
+    LoginScreenSuccess:
+        name: "login_screen_success"
 
 
 
