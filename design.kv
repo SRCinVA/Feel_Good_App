@@ -7,11 +7,14 @@
             Label: # a Python object
                 text: "User Login"
             TextInput: # a Python object
+                id: 'username'
                 hint_text: "Username"
             TextInput: # a Python object
+                id: 'password'
                 hint_text: "Password"
             Button: # a Python object
                 text: "Login"
+                on_press: root.login(root.ids.username.text, root.ids.password.text) # the second and third 'root' refer to teh login screen.
         GridLayout:
             cols: 2
             Button: 
