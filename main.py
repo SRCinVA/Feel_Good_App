@@ -17,11 +17,12 @@ class LoginScreen(Screen):  # under the RootWidget in the hierarchy
         # 'current' is an attribute of 'manager', and it will get the name of the scrren you want to switch to (in this case, sign_up_screen)
 
     def login(self, uname, pword):  # can use whatever variable names you want here. The 'on_press' element tells the function to look for two things.
-        pass
         with open("users.json",'r') as file:
             users = json.load(file) # this will create a dictionary for us containing all the info of the .json file
         if uname in users and users[uname]['password'] == pword:   # to check if the name is there and that the password is correct ...
             self.manager.current = 'login_screen_success'
+        else:
+            self.ids.login_wrong.text = "Wrong username or password!"  # we look for the Label object and the text attached to it.
 
 class RootWidget(ScreenManager):  # the next in the hierarchy
     pass
@@ -35,9 +36,6 @@ class SignUpScreen(Screen):
         users['uname'] = {'username': uname,  # meaning that username will be whatever we pass in for the uname variable
                         'password': pword, 
                         'created': datetime.now().strftime("%Y-%m-%d %H-%M-%S")}  # need to get the current time as a string
-        
-        
-        
         #print(users)  # as a testing step
         with open("users.json","w") as file:
             json.dump(users, file)  # we "dump" the users in the dictionary (or list?) to the .json file
