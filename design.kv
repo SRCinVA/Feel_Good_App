@@ -63,9 +63,11 @@
             text: "Logout"
             on_press: root.log_out()
         TextInput:
+            id: feeling
             hint_text: "Things to try: happy, sad, unloved, etc... "
         Button:
             text: "Enlighten me"
+            on_press: root.get_quote(root.ids.feeling.text)
         Label:
             text: ""
 

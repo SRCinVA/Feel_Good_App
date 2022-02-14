@@ -4,6 +4,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager
 import json
 from datetime import datetime
+import json, glob
 
 Builder.load_file('design.kv')
 
@@ -53,6 +54,12 @@ class LoginScreenSuccess(Screen):
     def log_out(self):
         self.manager.transition.direction = "right"
         self.manager.current = "login_screen"
+
+    def get_quote(self, feel):  # we can call this input whatever we want; it isn't literally 'feeling' from the kivy file
+        feel = feel.lower()
+        # print(feel)
+        available_feelings = glob.glob("quotes/*txt")        # the 'glob' module :)
+        print(available_feelings)
 
 class MainApp(App):   # the app object you haven't used yet (inherits from App above). It is the highest in the heirarchy.
     def build(self): # def build is from App.
