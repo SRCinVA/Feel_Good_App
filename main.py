@@ -1,10 +1,12 @@
 from datetime import datetime
+from fileinput import filename
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager
 import json
 from datetime import datetime
 import json, glob
+from pathlib import Path
 
 Builder.load_file('design.kv')
 
@@ -59,7 +61,16 @@ class LoginScreenSuccess(Screen):
         feel = feel.lower()
         # print(feel)
         available_feelings = glob.glob("quotes/*txt")        # the 'glob' module :)
-        print(available_feelings)
+
+        # now, we'd like to just pul out the available stem names using a list comprehension
+        # not sure why we want to do this ...
+        available_feelings = [Path(filename).stem for filename in 
+                                available_feelings]  # in square brackets, these can be split.
+        # print(available_feelings) test it through the terminal 
+        if feel in available_feelings:
+            with open (f"quotes/{feel}.txt") as file:    # open the suitable file containing that feeling in the name.
+                quotes = file.readlines()  # this will produce a list of all the quotes
+            print(quotes)
 
 class MainApp(App):   # the app object you haven't used yet (inherits from App above). It is the highest in the heirarchy.
     def build(self): # def build is from App.
