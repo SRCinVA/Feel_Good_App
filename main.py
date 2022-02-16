@@ -7,6 +7,7 @@ import json
 from datetime import datetime
 import json, glob
 from pathlib import Path
+import random
 
 Builder.load_file('design.kv')
 
@@ -70,7 +71,7 @@ class LoginScreenSuccess(Screen):
         if feel in available_feelings:
             with open (f"quotes/{feel}.txt") as file:    # open the suitable file containing that feeling in the name.
                 quotes = file.readlines()  # this will produce a list of all the quotes
-            print(quotes)
+            self.ids.quote.text = random.choice(quotes)  # pressing the 'enlighten me' button (w/ 'quote' id), the text of the quote will display.
 
 class MainApp(App):   # the app object you haven't used yet (inherits from App above). It is the highest in the heirarchy.
     def build(self): # def build is from App.
