@@ -73,6 +73,9 @@ class LoginScreenSuccess(Screen):
                 quotes = file.readlines()  # this will produce a list of all the quotes
             self.ids.quote.text = random.choice(quotes)  # pressing the 'enlighten me' button (w/ 'quote' id), the text of the quote will display.
 
+        else:
+            self.ids.quote.text = "Try another feeling" # basically, the user has input something we don't have content to address.
+
 class MainApp(App):   # the app object you haven't used yet (inherits from App above). It is the highest in the heirarchy.
     def build(self): # def build is from App.
         return RootWidget() # make sure it's the object and not the class (the brackets () initialize it.)

@@ -4,8 +4,11 @@
         cols: 1  # need to attach column attributes to this grid layout object.
         GridLayout:
             cols: 1  # need a column attribute here as well.
+            padding: 15, 15 # borders to the edge of the app in pixels. (external) Weird. No CSS required.
+            spacing: 20, 20 # between widgets in the grid layout. (internal)
             Label: # a Python object
                 text: "User Login"
+                font_size: '20sp'
             TextInput: # a Python object
                 id: username
                 hint_text: "Username"
@@ -15,6 +18,7 @@
             Button: # a Python object
                 text: "Login"
                 on_press: root.login(root.ids.username.text, root.ids.password.text) # the second and third 'root' refer to teh login screen.      
+                size_hint: 0.3, 0.5 # 30% of the width, half the height
             Label:
                 id: login_wrong
                 text: "" 
