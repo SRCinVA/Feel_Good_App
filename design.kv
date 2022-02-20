@@ -14,6 +14,7 @@
                 hint_text: "Username"
             TextInput: # a Python object
                 id: password
+                password: True  # this "stars" your password
                 hint_text: "Password"
             RelativeLayout: # do this to ensure that the 0.3 works
                 Button: # a Python object
@@ -31,8 +32,14 @@
             spacing: 10, 0
             Button: 
                 text: "Forgot Password?"
+                background_color: 1, 1, 1, 0 # an RGB value and a completely transparent background
+                opacity: 1 if self.state == "normal" else 0.5  # this command creates a signal that the button is being pressed; self refers to the button. .parent woudl access GridLayout.
+                color: 0.1, 0.7, 1, 1  # from an RGB schema and a transparency of 1 
             Button: 
                 text: "Sign up" 
+                background_color: 1, 1, 1, 0 # an RGB value and a completely transparent background
+                opacity: 1 if self.state == "normal" else 0.5  # this command creates a signal that the button is being pressed; self refers to the button. .parent woudl access GridLayout.
+                color: 0.1, 0.7, 1, 1  # from an RGB schema and a transparency of 1 
                 on_press: root.sign_up() # another attribute
                                             # 'root' here refers to the LoginScreen class in the other file
                                             # .sign_up() also refers back to the python file.
