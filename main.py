@@ -3,7 +3,7 @@ from fileinput import filename
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager
-import json
+from hoverable import HoverBehavior
 from datetime import datetime
 import json, glob
 from pathlib import Path
@@ -75,6 +75,9 @@ class LoginScreenSuccess(Screen):
 
         else:
             self.ids.quote.text = "Try another feeling" # basically, the user has input something we don't have content to address.
+
+class ImageButton():
+    pass
 
 class MainApp(App):   # the app object you haven't used yet (inherits from App above). It is the highest in the heirarchy.
     def build(self): # def build is from App.
