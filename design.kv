@@ -79,9 +79,9 @@
         spacing: 30, 30
         Label:
             text: "How do you feel?"
-        Button:
-            text: "Logout"
+        ImageButton: # this button inherits from HoverBehavior
             on_press: root.log_out()
+            source: "logout_hover.png" if self.hovered else "logout_nothover.png" # hovered is a Boolean inside of hoverable.py
         TextInput:
             id: feeling
             hint_text: "Things to try: happy, sad, unloved, etc... "
