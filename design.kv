@@ -77,11 +77,14 @@
         cols: 1
         padding: 30, 30
         spacing: 30, 30
+        RelativeLayout:
+            ImageButton: # this button inherits from HoverBehavior
+                on_press: root.log_out()
+                source: "logout_hover.png" if self.hovered else "logout_nothover.png" # hovered is a Boolean inside of hoverable.py
+                size_hint: 0.35, 0.35
+                pos_hint: {'center_x': 0.93, 'center_y': 0.8} # for thsi to work, the entire widget had to be in a RelativeLayout button.
         Label:
             text: "How do you feel?"
-        ImageButton: # this button inherits from HoverBehavior
-            on_press: root.log_out()
-            source: "logout_hover.png" if self.hovered else "logout_nothover.png" # hovered is a Boolean inside of hoverable.py
         TextInput:
             id: feeling
             hint_text: "Things to try: happy, sad, unloved, etc... "

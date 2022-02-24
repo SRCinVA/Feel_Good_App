@@ -78,7 +78,8 @@ class LoginScreenSuccess(Screen):
         else:
             self.ids.quote.text = "Try another feeling" # basically, the user has input something we don't have content to address.
 
-class ImageButton(HoverBehavior, Image, ButtonBehavior):
+
+class ImageButton(ButtonBehavior, HoverBehavior, Image):  # for some reason, ButtonBehavior needs to go first
     pass  # strangely, all you need to do here is create the class. Everything else is just a pass statement.
 
 class MainApp(App):   # the app object you haven't used yet (inherits from App above). It is the highest in the heirarchy.
