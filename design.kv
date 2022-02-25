@@ -94,6 +94,10 @@
         Label:
             id: quote
             text: ""
+            text_size: self.width, None # for the text size height, so that it properly re-sizes. 
+            # 'self' refers to the current widget. The text will get the width and height of the Label widget that houses it.
+            size_hint_y: None  # we're telling the 
+            height: self.texture_size[1]  # hard to understand what he's doing here ...
 
 # Refactored this up above, as RootWidget is above LoginScreen in the hierarchy
 <RootWidget>: # an invisible record of all your app's screens
