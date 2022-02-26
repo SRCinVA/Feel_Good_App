@@ -91,13 +91,14 @@
         Button:
             text: "Enlighten me"
             on_press: root.get_quote(root.ids.feeling.text)
-        Label:
-            id: quote
-            text: ""
-            text_size: self.width, None # for the text size height, so that it properly re-sizes. 
-            # 'self' refers to the current widget. The text will get the width and height of the Label widget that houses it.
-            size_hint_y: None  # we're telling the 
-            height: self.texture_size[1]  # hard to understand what he's doing here ...
+        ScrollView:  # we make Label a child of ScrollView . Now you can scroll internally within the text field.
+            Label:
+                id: quote
+                text: ""
+                text_size: self.width, None # for the text size height, so that it properly re-sizes. 
+                # 'self' refers to the current widget. The text will get the width and height of the Label widget that houses it.
+                size_hint_y: None  # we're telling the 
+                height: self.texture_size[1]  # hard to understand what he's doing here ... we want the second element of some tuple ... 
 
 # Refactored this up above, as RootWidget is above LoginScreen in the hierarchy
 <RootWidget>: # an invisible record of all your app's screens
